@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <Script>
+          var url= "https://api.covid19api.com/summary"  
+          
+                    $.get(url,function(data){
+                        for (var i= 0; i <192; i++){
+                            var fff= (data.Countries[i].Country).toLocaleString()
+                            console.log(fff)
+                            if (fff == "Yemen"){
+                                console.log((data.Countries[i].TotalConfirmed).toLocaleString())
+                            }
+                        }  
+                    }
+                    
+                    
+
+            )
+
+
+
+
+
+        </Script>
+    </body>

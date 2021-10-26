@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" 
+            content="width=device-width
+            initial-scale=1.0">
+        <!--==================== UNICONS ====================-->
+        <link rel="stylesheet" 
+            href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">       
+        <!--==================== CSS ====================-->
+        <link rel="stylesheet" 
+            href="styles.css">
+        <!--==================== BOOTSTRAP ====================-->
+        <link rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+            crossorigin="anonymous">
+        <title>COVID 19 Tracker</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <div>
+                <i class="uil uil-coronavirus"></i>
+                <a href="index.html" class="nav_logo">
+                    OMNI STATS
+                </a>
+            </div>
+            <div class="nav_menu" id="nav-menu">
+                <ul class="nav_list grid">
+                    <li class="nav_item">
+                        <a href="index.html"
+                            class="nav_link">
+                            <i class="uil uil-estate nav_icon"></i>
+                        Dashboard
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a 
+                        href="https://api.covid19api.com/summary"
+                        target=”_blank”
+                        class="nav_link">
+                        <i class="uil uil-user nav_icon"></i>
+                        Data Manager
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a 
+                        href="/help.html"
+                        class="nav_link active-link">
+                        <i class="uil uil-file-alt nav_icon"></i>
+                        Help
+                        </a>
+                    </li>
+                </ul>
+                <i class="uil uil-times nav_close"
+                id="nav-close">
+                </i>
+            </div>
+            <div class="nav_btns">
+                <!-- Theme Change Button -->
+                <i class="uil uil-moon change-theme"
+                id= "theme-button">
+                </i>
+                <div class="nav_toggle" 
+                    id="nav-toggle">
+                    <i class="uil uil-apps"></i>
+                </div>
+            </div> 
+        </header>
+        <!--==================== TOOLBAR ====================--> 
+        <div class="topline"></div>
+            <div class= "toolbar">
+                <div class="toolbar9">
+                    <button class="filter">
+                        <i class="uil uil-draggabledots"></i>
+                        <span class="filter1"
+                            id="filter1">
+                            0 Filters
+                        </span>
+                    </button>
+                    <div class="filter2" 
+                        onclick="removeFilter()">
+                        <i class="uil uil-filter-slash"></i>
+                        <span class="filter3">Remove Filter</span>
+                    </div>
+                </div>
+                <div class="filter5">
+                    <div class="home_title">COVID 19 Live Data Tracker</div>
+                    <div class="home_subtitle">Source: Johns Hopkins University CSSE</div>
+                </div>
+                <div class="filter2">
+                    <i class="uil uil-refresh"></i>
+                    <span class="filter3">Refresh</span>
+                </div>
+                <div class="services_modal">
+                    <div class="services_modal-content">
+                        <h4 class="services_modal-title"> Select A Country:</h4>
+                        <i class="uil uil-times services_modal-close"></i>
+                        <div id="slideContainer"></div>
+                    </div>
+                </div>
+            </div>
+        <div class="bottomline"></div>
+        <!--==================== HELP SECTION ====================--> 
+        <div class="help3">    
+            <h1 class= "help"> Help </h1>
+            <h3 class= "help2"> About</h3>
+            <div class= "help4">Coronavirus disease 2019 (COVID-19) is a contagious disease caused by severe acute 
+                respiratory syndrome coronavirus 2 (SARS-CoV-2). The first known case was identified in 
+                Wuhan, China in December 2019. The disease has since spread worldwide, leading to an 
+                ongoing pandemic.
+            </div> 
+            <h3 class= "help2"> Symptoms</h3>
+            <div class= "help4">Symptoms of COVID-19 are variable, but often include fever, cough, headache, fatigue, 
+                breathing difficulties, and loss of smell and taste. Symptoms may begin one to fourteen days after 
+                exposure to the virus. At least a third of people who are infected do not develop noticeable symptoms.
+                Of those people who develop symptoms noticeable enough to be classed as patients, most (81%) develop 
+                mild to moderate symptoms (up to mild pneumonia), while 14% develop severe symptoms (dyspnea, 
+                hypoxia, or more than 50% lung involvement on imaging), and 5% suffer critical symptoms 
+                (respiratory failure, shock, or multiorgan dysfunction). Older people are at a higher risk of 
+                developing severe symptoms. Some people continue to experience a range of effects (long COVID) for
+                 months after recovery, and damage to organs has been observed. Multi-year studies are underway 
+                 to further investigate the long-term effects of the disease.
+            </div>
+            <h3 class= "help2"> Transmission</h3>
+            <div class= "help4">COVID-19 transmits when people breathe in air contaminated by droplets and small 
+                airborne particles containing the virus. The risk of breathing these in is highest when 
+                people are in close proximity, but they can be inhaled over longer distances, particularly 
+                indoors. Transmission can also occur if splashed or sprayed with contaminated fluids in 
+                the eyes, nose or mouth, and, rarely, via contaminated surfaces. People remain contagious 
+                for up to 20 days, and can spread the virus even if they do not develop symptoms.
+            </div>
+            <h3 class= "help2"> Diagnostic Methods</h3>
+            <div class= "help4">Several testing methods have been developed to diagnose the disease. The standard 
+                diagnostic method is by detection of the virus' nucleic acid by real-time reverse 
+                transcription polymerase chain reaction (rRT-PCR), transcription-mediated amplification 
+                (TMA), or by reverse transcription loop-mediated isothermal amplification (RT-LAMP) from 
+                a nasopharyngeal swab.
+            </div>
+            <h3 class= "help2"> Prevention And Treatment</h3>
+            <div class= "help4">Several COVID-19 vaccines have been approved and distributed in various countries, 
+                which have initiated mass vaccination campaigns. Other preventive measures include 
+                physical or social distancing, quarantining, ventilation of indoor spaces, covering 
+                coughs and sneezes, hand washing, and keeping unwashed hands away from the face. The 
+                use of face masks or coverings has been recommended in public settings to minimize the 
+                risk of transmissions. While work is underway to develop drugs that inhibit the virus, 
+                the primary treatment is symptomatic. Management involves the treatment of symptoms, 
+                supportive care, isolation, and experimental measures.
+            </div>
+            <h3 class= "help2"> John Hopkins University CSSE</h3>
+            <div class= "help4">Housed in the Johns Hopkins Department of Civil and Systems Engineering, 
+                CSSE takes a multidisciplinary approach to modeling, understanding, and optimizing 
+                systems of local, national, and global importance. These include medicine, health care 
+                delivery, national infrastructure, information security, disaster response, and education. 
+                In addition to faculty from across multiple engineering departments, CSSE utilizes the 
+                expertise of researchers from the schools of Medicine, Public Health, Nursing, Arts and 
+                Sciences, Business, and Education; and from JHU’s Applied Physics Laboratory, already 
+                one of the nation’s leading centers of systems engineering.
+            </div>
+            <br>
+            <h1 class= "help"> Glossary </h1>
+            <h3 class= "help2"> Total Cases</h3>
+            <div class= "help4">Total cases refers to the number of confirmed infections of the COVID-19 virus 
+                since the first known case was identified in Wuhan, China in December 2019.
+            </div>
+            <h3 class= "help2"> Total Deaths</h3>
+            <div class= "help4">Total deaths refers to incidents since December 2019 where COVID-19 
+                was directly linked to causing acute complications, respiratory or otherwise, that
+                resulted in fatalities. 
+
+            </div>
+            <h3 class= "help2"> Total Recovered</h3>
+            <div class= "help4">Total recovered refers to the number of cases in which individuals with confirmed COVID-19
+                virus cases were dismissed as being active or acute. 
+            </div> 
+            <h3 class= "help2"> Mortality Rate</h3>
+            <div class= "help4">Mortality rate refers to the percentage of formely active COVID-19 
+                virus cases that resulted in fatality or death.  
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!--==================== SCROLL TOP ====================--> 
+        <a href="#" 
+        class="scrollup" 
+        id="scroll-up">
+        <i class="uil uil-arrow-up scrollup_icon"></i>
+        </a>
+
+        <!--==================== JQUERY API ====================-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!--==================== MAIN JS ====================--> 
+        <!--==================== FILTER MODAL OPEN/CLOSE UNLIMITED TIMES (FOR EACH ROTATIONS)====================-->       
+        <script>
+            const modalBtns = document.querySelectorAll(".filter"),
+            modalViews = document.querySelectorAll(".services_modal"),
+            modalCloses = document.querySelectorAll(".services_modal-close")
+
+            let modal = function (modalClick){
+            modalViews[modalClick].classList.add("active-modal")
+            }
+
+            modalBtns.forEach((z, i) => {
+                z.addEventListener("click",() =>{
+                    modal(i)
+                })
+            })
+
+            modalCloses.forEach((x) => {
+                x.addEventListener("click", () =>{
+                    modalViews.forEach((y) =>{
+                        y.classList.remove("active-modal")
+                    })
+                })
+            })
+            </script>
+            <!--==================== COUNTRY LIST ====================--> 
+            <script>
+            const list= [
+            'USA (United States of America)',
+            'UK (United Kingdom)' ,
+            'China',
+            'India'	 ,
+            'Afghanistan',	 	 
+            'Albania',	 
+            'Algeria',	 	 
+            'Andorra',	 
+            'Angola',	 
+            'Anguilla',	 
+            'Antigua and Barbuda'	, 
+            'Argentina'	 ,
+            'Armenia'	 ,
+            'Aruba'	 , 
+            'Austria'	 ,
+            'Azerbaijan',	 
+            'Bahamas'	 ,
+            'Bahrain'	 ,
+            'Bangladesh',	 
+            'Barbados'	, 
+            'Belarus	' ,
+            'Belgium	 ',
+            'Belize	 ',
+            'Benin	' ,
+            'Bermuda	' ,
+            'Bhutan'	 ,
+            'Bolivia ',	 
+            'Bosnia and Herzegovina	', 
+            'Botswana'	 ,
+            'Brazil	' ,
+            'British Virgin Islands'	 ,
+            'Brunei Darussalam'	 ,
+            'Bulgaria'	 ,
+            "Burkina Faso"	 ,
+            'Burundi'	 ,
+            'Cabo Verde',	 
+            'Cambodia'	 ,
+            'Cameroon'	 ,
+            'Canada'	 ,
+            'Cayman Islands	 ',
+            'Central African Republic	',	 
+            'Chad'	 ,
+            'Chile'	 ,
+            'Colombia',	 
+            'Comoros'	 ,
+            'Congo',	 
+            'Cook Islands	' ,
+            "Costa Rica"	 ,
+            "Côte d'Ivoire	",
+            'Croatia'	 ,
+            'Cuba'	 ,
+            'Curaçao'	 ,
+            'Cyprus'	 ,
+            'Czechia'	 ,
+            "Democratic People's Republic of Korea	 ",
+            'Democratic Republic of the Congo	' ,
+            'Denmark'	 ,
+            'Djibouti'	 ,
+            'Dominica'	, 
+            'Dominican Republic	 '	 ,
+            'Ecuador	' ,
+            'Egypt'	 ,
+            'El Salvador'	, 
+            'Equatorial Guinea	' ,
+            'Eritrea'	 ,
+            'Estonia'	 ,
+            'Ethiopia'	 ,
+            'Fiji'	 ,
+            'Finland'	 ,	 
+            'France'	 ,
+            'French Polynesia',
+            'Gabon'	 ,
+            'Gambia'	 ,
+            'Georgia'	 ,
+            'Germany'	 ,
+            'Ghana'	 ,
+            'Greece'	 ,
+            'Greenland',	 
+            'Grenada'	 ,
+            'Guatemala',	 
+            'Guinea'	 ,
+            'Guinea-Bissau',	 
+            'Guyana'	 ,
+            'Haiti'	 ,
+            'Honduras',	 
+            'Hungary'	 ,
+            'Iceland'	 ,
+            'Indonesia',	 
+            'Iran'	 ,
+            'Iraq'	 ,
+            'Ireland'	 ,
+            'Israel'	 ,
+            'Italy'	 ,
+            'Jamaica'	 ,
+            'Japan'	 ,
+            'Jordan'	 ,
+            'Kazakhstan',	 
+            'Kenya'	 ,
+            'Kingdom of Eswatini'	, 
+            'Kiribati'	 ,
+            'Kosovo'	 ,
+            'Kuwait'	 ,
+            'Kyrgyzstan',	 
+            "Lao People's Democratic Republic	"  ,
+            'Latvia'	 ,
+            'Lebanon'	 ,
+            'Lesotho'	 ,
+            'Liberia'	 ,
+            'Libya'	 ,
+            'Liechtenstein',	 
+            'Lithuania'	 ,
+            'Luxembourg'	 ,
+            'Madagascar'	 ,
+            'Malawi'	 ,
+            'Malaysia',	 
+            'Maldives',	 
+            'Mali'	 ,
+            'Malta'	 ,
+            'Marshall Islands'	, 
+            'Mauritania'	 ,
+            'Mauritius'	 ,
+            'Melanesia'	 ,
+            'Mexico'	  ,
+            'Micronesia',	 	 
+            'Monaco'	 ,
+            'Mongolia'	, 
+            'Montenegro'	 ,
+            'Montserrat'	 ,
+            'Morocco'	 ,
+            'Mozambique',	 
+            'Myanmar'	 ,
+            'Namibia'	 ,
+            'Nauru'	 ,
+            'Nepal'	 ,
+            'Netherlands'	, 
+            'New Caledonia',	 
+            'New Zealand'	, 
+            'Nicaragua'	 ,
+            'Niger'	 ,
+            'Nigeria'	 ,	 
+            'Norway'	 ,
+            'Oman',
+            'Pakistan'	 ,
+            'Palau'	 ,
+            'Panama'	 ,
+            'Papua New Guinea'	, 
+            'Paraguay'	 ,
+            'Peru'	 ,
+            'Philippines',	 
+            'Poland'	 ,
+            'Polynesia',	 
+            'Portugal',	 
+            "Puerto Rico"	, 
+            'Qatar	' ,
+            'Republic of Korea'	 ,
+            'Republic of Moldova'	, 
+            'Republic of North Macedonia'	, 
+            'Romania'	 ,
+            'Russian Federation'	 ,
+            'Rwanda'	 ,
+            'Saint Kitts and Nevis	 ',
+            'Saint Lucia	 ',
+            'Saint Vincent and the Grenadines'	 ,
+            'Samoa'	 ,
+            'San Marino',	 
+            'Sao Tome and Principe	 ',
+            'Saudi Arabia'	 ,
+            'Senegal	' ,
+            'Serbia'	 ,
+            'Seychelles',	 
+            'Sierra Leone',	 
+            'Singapore'	 ,
+            'Sint Maarten' ,
+            'Slovakia',	 
+            'Slovenia'	, 
+            'Solomon Islands'	 ,
+            'Somalia'	 ,
+            'South Africa',	 
+            'South Sudan	 '	 ,
+            'Spain',	 
+            "Sri Lanka",	 
+            'State of Palestine'	, 	 
+            'Sudan'	, 
+            'Suriname'	, 
+            'Sweden	' ,
+            'Switzerland'	 ,
+            'Syrian Arab Republic'	 ,
+            'Tajikistan	' ,
+            'Thailand	', 
+            'Timor-Leste'	, 
+            'Togo'	, 
+            'Tonga'	 ,
+            'Trinidad and Tobago'	, 
+            'Tunisia'	 ,
+            'Turkey'	 ,
+            'Turkmenistan'	 ,
+            'Turks and Caicos Islands	' ,
+            'Tuvalu'	 ,
+            'Uganda	' ,
+            'Ukraine'	 ,
+            'United Arab Emirates'	 ,
+            'Tanzania'	 , 
+            'Uruguay'	 ,
+            'Uzbekistan',	 
+            'Vanuatu'	 ,
+            'Venezuela'	 ,
+            'Vietnam'	 	, 
+            'Yemen'	  ,
+            'Zambia	' ,
+            'Zimbabwe' ,
+            ]
+            </script>
+            <!--==================== GET COUNTRY FOR FILTER ====================--> 
+
+            <script>
+                function countryFilter(x){
+                    const hhh= document.getElementById("option")
+                    console.log(x.value+"hello")
+                    
+                    const modalViews = document.querySelectorAll(".services_modal")
+                    console.log(modalViews)
+                    modalViews.forEach((y) =>{
+                        y.classList.remove("active-modal")
+                    })
+                   
+                    var url= "https://api.covid19api.com/summary"  
+                    $.get(url,function(data){
+                    for (var i= 0; i <192; i++){
+                        var fff= (data.Countries[i].Country).toLocaleString()
+                        console.log(fff)
+
+                        if (fff == x.value){
+                            var xxx= `
+                                <div> ${(data.Countries[i].TotalConfirmed).toLocaleString()}
+                                    </div>
+                                `
+                                document.getElementById("data").innerHTML = xxx
+                            var yyy = `
+                            <div>${(data.Countries[i].TotalDeaths).toLocaleString()}
+                            </div>
+                                ` 
+                                document.getElementById("data1").innerHTML = yyy    
+                            var zzz = `
+                            ${(data.Countries[i].TotalConfirmed).toLocaleString()}
+                                     ` 
+                            var ccc = `
+                            ${(data.Countries[i].TotalDeaths).toLocaleString()}
+                                `   
+                                console.log(zzz)
+                                var formatted = zzz.replace(',','')
+                                console.log(formatted)
+                                var formatted1= formatted.replace(",","")
+                                var converted = parseFloat(formatted1)
+                                console.log(converted)
+
+                                console.log(ccc)
+                                var formatted = ccc.replace(',','')
+                                console.log(formatted)
+                                var formatted1= formatted.replace(",","")
+                                var converted1 = parseFloat(formatted1)
+                                console.log(converted1)
+
+
+                                console.log(typeof(converted1))
+                                ddd= (converted - converted1).toLocaleString("en-US")
+                                document.getElementById("data2").innerHTML = ddd
+
+                                fff= (converted1 / converted)
+                                document.getElementById("data3").innerHTML = (fff*100).toFixed(2) + "%" 
+
+                                bbb= `
+                                <span class="filter1"
+                                    id="filter1">
+                                    ${x.value}
+                                </span>
+                                `
+                                document.getElementById("filter1").innerHTML = bbb
+
+                            
+                        }
+                        else{
+                        console.log("no")
+                        }
+                        
+                    }
+                }
+            )
+
+
+
+
+
+                }
+            </script>
+            <!--==================== COUNTRY LIST POPULATE SELECT ====================--> 
+
+            <script>
+            list.forEach(x => console.log(x))
+            var str = '<select id= "option" onchange="countryFilter(this)">'
+
+            list.forEach(function(x) {
+                str += '<option class= "option" value=' + x + '>'+ x + '</option>';
+            }); 
+
+            str += '</select>';
+            document.getElementById("slideContainer").innerHTML = str;
+            </script>
+            <!--==================== GLOBAL STATS API PULL ====================--> 
+            <script>
+        function GlobalDataLoad() {
+            var url= "https://api.covid19api.com/summary" 
+            console.log(url)  
+            $.get(url,function(data){
+                var xxx = `        
+                    <div>${(data.Global.TotalConfirmed).toLocaleString()}
+                    </div>
+                        `   
+                        document.getElementById("data").innerHTML = xxx
+                var yyy = `
+                    <div>${(data.Global.TotalDeaths).toLocaleString()}
+                    </div>
+                        ` 
+                        document.getElementById("data1").innerHTML = yyy 
+                var zzz = `
+                    ${(data.Global.TotalConfirmed).toLocaleString()}
+                        ` 
+                var ccc = `
+                    ${(data.Global.TotalDeaths).toLocaleString()}
+                        `   
+                        console.log(zzz)
+                        var formatted = zzz.replace(',','')
+                        console.log(formatted)
+                        var formatted1= formatted.replace(",","")
+                        var converted = parseFloat(formatted1)
+                        console.log(converted)
+
+                        console.log(ccc)
+                        var formatted = ccc.replace(',','')
+                        console.log(formatted)
+                        var formatted1= formatted.replace(",","")
+                        var converted1 = parseFloat(formatted1)
+                        console.log(converted1)
+
+
+                        console.log(typeof(converted1))
+                        ddd= (converted - converted1).toLocaleString("en-US")
+                        document.getElementById("data2").innerHTML = ddd
+
+                        fff= (converted1 / converted).toFixed(4)
+                        document.getElementById("data3").innerHTML = fff*100 + "%" 
+            })
+        }
+
+        GlobalDataLoad()
+
+
+
+            </script>
+            <!--==================== COUNTRY FILTER ====================--> 
+            <script>
+                
+
+
+
+            </script>
+
+            <script>
+                /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+            const sections = document.querySelectorAll("section[id]")
+
+            function scrollActive(){
+                const sscrollY = window.pageYOffset
+
+                sections.forEach(current =>{
+                    const sectionHeight= current.offsetHeight
+                    const sectionTop= current.offsetTop - 50
+                    sectionId= current.getAttribute("id")
+
+                    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+                        document.querySelector('.nav_menu a[href*=' + 
+                        sectionId + ']').classList.add("active-link")
+                    }
+                    else{
+                        document.querySelector('.nav_menu a[href*=' + 
+                        sectionId + ']').classList.remove("active-link")
+                    }
+                })
+            }
+            window.addEventListener("scroll", scrollActive)
+
+
+            /*==================== CHANGE BACKGROUND HEADER ====================*/ 
+            function scrollHeader(){
+                const nav = document.getElementById("header")
+                if(this.scrollY >= 80) nav.classList.add("scroll-header")
+                else nav.classList.remove("scroll-header")
+            }
+            window.addEventListener("scroll", scrollHeader)
+
+            /*==================== SHOW SCROLL UP BUTTON====================*/ 
+            function scrollUp(){
+                const scrollUp = document.getElementById("scroll-up")
+                if(this.scrollY >= 560) scrollUp.classList.add("show-scroll")
+                else scrollUp.classList.remove("show-scroll")
+            }
+            window.addEventListener("scroll", scrollUp)
+
+            /*==================== DARK LIGHT THEME ====================*/ 
+            const themeButton = document.getElementById("theme-button")
+            const darkTheme = "dark-theme"
+            const iconTheme = "uil-sun"
+            const ttt= document.getElementsByTagName("html")[0]
+
+            const selectedTheme = localStorage.getItem("selected-theme")
+            const selectedIcon = localStorage.getItem("selected-icon")
+
+            const getCurrentTheme = () => document.body.classList(darkTheme) ? "dark" : "light"
+            const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun"
+
+
+            if (selectedTheme) {
+                document.body.classList[selectedTheme === "dark" ? "add" : "remove"] (darkTheme)
+                themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"] (iconTheme)    
+            }
+
+            themeButton.addEventListener("click", () =>{
+                document.body.classList.toggle(darkTheme)
+                themeButton.classList.toggle(iconTheme)
+                ttt.classList.toggle("dark")
+                localStorage.setItem("selected-theme", getCurrentTheme())
+                localStorage.setItem("selected-icon", getCurrentIcon())
+            })
+
+
+            /*==================== COLLAPSES MENU WHEN LINK IS CLICKED 101021 ====================*/
+            const navLink = document.querySelectorAll(".nav_link")
+
+            function linkAction(){
+                const navMenu = document.getElementById("nav-menu")
+                navMenu.classList.remove("show-menu")
+            }
+            navLink.forEach(n => n.addEventListener("click", linkAction))
+
+            /*==================== MENU SHOW Y HIDDEN ====================*/
+            const navMenu = document.getElementById("nav-menu"),
+                navToggle = document.getElementById("nav-toggle"),
+                navClose = document.getElementById("nav-close")
+
+            /*===== MENU SHOW =====*/
+            /* Validate if constant exists */
+            if(navToggle){
+                navToggle.addEventListener("click", () => {
+                    navMenu.classList.add("show-menu")
+                })
+            }
+
+
+            /*===== MENU HIDDEN =====*/
+            /* Validate if constant exists */
+            if(navClose){
+                navClose.addEventListener("click", ()=>{
+                    navMenu.classList.remove("show-menu")
+                })
+            }
+
+            /*===== REMOVE FILTER BUTTON =====*/
+
+            function removeFilter(){
+                    clearData()
+                    GlobalDataLoad()
+                }
+                function clearData(){
+                    $("#data").empty(),
+                    $("#data1").empty(),
+                    $("#data2").empty(),
+                    $("#data3").empty()
+
+                    aaa= ` <span class="filter1"
+                                    id="filter1">
+                                    0 Filters
+                                </span>
+                                `
+                    document.getElementById("filter1").innerHTML = aaa
+                }
+                        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    </body>
+</html>
